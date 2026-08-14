@@ -1,0 +1,102 @@
+{
+  "silos": [
+    {
+      "id": 1,
+      "name": "Silo 1",
+      "material": "EDISTIR R 321P BULK CM P938",
+      "group": 1,
+      "status": true
+    },
+    {
+      "id": 2,
+      "name": "Silo 2",
+      "material": "Mafill CR CT 5344H PPTV20 Rez.",
+      "group": 1,
+      "status": true
+    },
+    {
+      "id": 3,
+      "name": "Silo 3",
+      "material": "Scolefin CF 4002 black 225230",
+      "group": 1,
+      "status": true
+    },
+    {
+      "id": 4,
+      "name": "Silo 4",
+      "material": "Pentamid AB GV10 MC20 H2 RC1 tiefsch.",
+      "group": 1,
+      "status": true
+    },
+    {
+      "id": 5,
+      "name": "Silo 5",
+      "material": "Mafill CRHT 6344 schwarz",
+      "group": 1,
+      "status": true
+    },
+    {
+      "id": 6,
+      "name": "Silo 6",
+      "material": "Seculene PPX 8027 S0 (DC) schwarz",
+      "group": 1,
+      "status": true
+    },
+    {
+      "id": 7,
+      "name": "Silo 7",
+      "material": "Mafill CR CT 5344H PPTV20 Rez.",
+      "group": 1,
+      "status": true
+    },
+    {
+      "id": 8,
+      "name": "Silo 8",
+      "material": "Anjacom PA6 3255",
+      "group": 2,
+      "status": true
+    },
+    {
+      "id": 9,
+      "name": "Silo 9",
+      "material": "Hostacom XM2 U34 schwarz 102942",
+      "group": 2,
+      "status": true
+    },
+    {
+      "id": 10,
+      "name": "Silo 10",
+      "material": "Hostacom XM2 U34 schwarz 102942",
+      "group": 2,
+      "status": true
+    },
+    {
+      "id": 11,
+      "name": "Silo 11",
+      "material": "BGV 25C evograu 2,G2/290 2,5L",
+      "group": 2,
+      "status": true
+    },
+    {
+      "id": 12,
+      "name": "Silo 12",
+      "material": "Seculene PPX 8027 S0 (DC) schwarz",
+      "group": 2,
+      "status": true
+    },
+    {
+      "id": 13,
+      "name": "Silo 13",
+      "material": "Hostacom EKC297T schwarz",
+      "group": 2,
+      "status": true
+    },
+    {
+      "id": 14,
+      "name": "Silo 14",
+      "material": "Durethan BKV 60 H2.0EF DUS 060 sw.",
+      "group": 2,
+      "status": true
+    }
+  ]
+}
