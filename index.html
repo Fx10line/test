@@ -3,124 +3,35 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
-    <title>BBP Kunststoffwerk - SCADA v3.1</title>
+    <title>BBP SCADA Blueprint - Test</title>
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-
-    <!-- KONTROL PANELİ -->
+    <!-- Basit Kontrol Paneli -->
     <div id="kontrol-paneli">
-        <h2 id="panel-baslik">🛠️ BBP Paneli</h2>
-        <div id="panel-icerik">
-            <div class="zoom-araclari">
-                <button id="btn-zoom-out">-</button>
-                <span id="zoom-seviyesi">100%</span>
-                <button id="btn-zoom-in">+</button>
-            </div>
-            <button id="btn-kilitle" class="kilit-acik">🔓 Konumlar Serbest</button>
-            <p style="font-size:10px; color:#aaa; margin:6px 0 0 0; text-align:center;">Ayarlar için kutudaki ⚙️ ikonuna tıklayın.</p>
-            <div style="font-size:9px; color:#2ecc71; text-align:center; margin-top:4px; border-top:1px solid #444; padding-top:2px; font-weight:bold;">v3.1 - SVG & Optimizasyon</div>
+        <h2 style="margin:0; font-size:14px; color:#2c3e50; text-align:center;">BBP Blueprint v4.0</h2>
+        <div class="zoom-araclari" style="margin-top:10px;">
+            <button id="btn-zoom-out">-</button>
+            <span id="zoom-seviyesi">100%</span>
+            <button id="btn-zoom-in">+</button>
         </div>
+        <button id="btn-kilitle" class="kilit-acik" style="margin-top:10px; width:100%;">🔓 Konumlar Serbest</button>
+        <p style="font-size:10px; color:#7f8c8d; text-align:center; margin-top:5px;">Pil Dostu Mod Aktif 🔋</p>
     </div>
 
-    <!-- MİKRO-DENETİM BİLDİRİMİ -->
-    <div id="audit-toast" class="audit-toast" style="display:none;">
-        <div class="audit-icerik">
-            <span id="audit-mesaj">Silo 1 hala aynı mı?</span>
-            <div class="audit-butonlar">
-                <button id="btn-audit-evet" class="btn-onay">👍 Evet</button>
-                <button id="btn-audit-hayir" class="btn-red">🛑 Hayır</button>
-            </div>
-        </div>
-    </div>
-
-    <!-- ANA HARİTA (SAHNE) -->
+    <!-- Ana Çizim Alanı -->
     <main id="fabrika-sahasi">
         <div id="sahne">
-            <!-- CANVAS GİTTİ, SVG GELDİ (Sonsuz alan, %100 netlik) -->
-            <svg id="cizim-alani" style="position:absolute; top:0; left:0; width:100%; height:100%; overflow:visible; pointer-events:none; z-index:1;"></svg>
+            <!-- Arka Plan Bölge Çerçeveleri (Blueprint Görünümü) -->
+            <div id="bolgeler-kapsayici"></div>
+            
+            <!-- SVG Kablolar (Performans için tek katman) -->
+            <svg id="cizim-alani"></svg>
+            
+            <!-- Cihaz Kutuları -->
             <div id="cihazlar-kapsayici"></div>
         </div>
     </main>
-
-    <!-- YENİ: KAYAR ÇEKMECE PANEL (SİYAH MODAL YERİNE) -->
-    <div id="ayar-paneli" class="yan-panel">
-        <div class="panel-baslik-bar">
-            <h3 id="modal-baslik" style="margin:0; font-size:18px;">Ayarlar</h3>
-            <span class="kapat-btn" id="modal-kapat">&times;</span>
-        </div>
-        
-        <div class="panel-icerik-kaydirma">
-            <div id="makina-recete-alani" style="display:none; background:#dff9fb; padding:10px; border-radius:5px; margin-bottom:10px;">
-                <label style="color:#2980b9; font-weight:bold; font-size:12px;">🧠 Hafızadaki Reçeteler:</label>
-                <select id="modal-recete-secici" class="modal-input" style="padding:8px; margin-top:4px;"></select>
-                <button id="btn-recete-yukle" style="background:#2980b9; color:#fff; border:none; padding:8px; border-radius:4px; cursor:pointer; width:100%; font-weight:bold; margin-top:5px;">🔄 Reçeteyi Haritaya Bağla</button>
-            </div>
-
-            <label id="modal-etiket">Ana Bilgi / Ürün Kodu:</label>
-            <input type="text" id="modal-input-veri" class="modal-input">
-            
-            <div id="silo-ozel-bilgiler" style="display: none;">
-                <label>Artikel Kodu:</label>
-                <input type="text" id="modal-input-kod" class="modal-input">
-                <label>Teknik Özellikler / Notlar:</label>
-                <textarea id="modal-input-teknik" class="modal-input" rows="2"></textarea>
-            </div>
-
-            <div id="ek-besleme-alani" style="display: none; background: #ffeaa7; padding: 10px; border-radius: 5px; margin-bottom: 10px;">
-                <h4 style="margin: 0 0 8px 0; color: #d35400; font-size:13px;">➕ Ek Konteyner / Dozajlama</h4>
-                <div id="ek-slot-1">
-                    <label style="font-size:11px; font-weight:bold;">1. Ünite:</label>
-                    <div style="display:flex; gap:5px; margin-bottom:8px;">
-                        <select id="modal-ek-tip-1" class="modal-input" style="padding:6px; margin:0; flex:1;">
-                            <option value="yok">Yok</option><option value="merkez">Merkezî</option><option value="lokal">Lokal</option>
-                        </select>
-                        <input type="text" id="modal-ek-malzeme-1" class="modal-input" placeholder="Malzeme..." style="padding:6px; margin:0; flex:2;">
-                    </div>
-                </div>
-                <div id="ek-slot-2" style="display: none; border-top:1px dashed #d35400; padding-top:8px;">
-                    <label style="font-size:11px; font-weight:bold;">2. Ünite:</label>
-                    <div style="display:flex; gap:5px; margin-bottom:8px;">
-                        <select id="modal-ek-tip-2" class="modal-input" style="padding:6px; margin:0; flex:1;">
-                            <option value="yok">Yok</option><option value="merkez">Merkezî</option><option value="lokal">Lokal</option>
-                        </select>
-                        <input type="text" id="modal-ek-malzeme-2" class="modal-input" placeholder="Malzeme..." style="padding:6px; margin:0; flex:2;">
-                    </div>
-                </div>
-                <div id="ek-slot-3" style="display: none; border-top:1px dashed #d35400; padding-top:8px;">
-                    <label style="font-size:11px; font-weight:bold;">3. Ünite:</label>
-                    <div style="display:flex; gap:5px;">
-                        <select id="modal-ek-tip-3" class="modal-input" style="padding:6px; margin:0; flex:1;">
-                            <option value="yok">Yok</option><option value="merkez">Merkezî</option><option value="lokal">Lokal</option>
-                        </select>
-                        <input type="text" id="modal-ek-malzeme-3" class="modal-input" placeholder="Malzeme..." style="padding:6px; margin:0; flex:2;">
-                    </div>
-                </div>
-            </div>
-            
-            <div id="gelen-baglantilar-alani" style="background: #eef2f5; padding: 10px; border-radius: 5px; margin-bottom: 10px;">
-                <h4 style="margin: 0 0 5px 0; color: #2c3e50; font-size:14px;">📥 Gelen Malzemeler</h4>
-                <ul id="gelen-listesi" style="margin: 0; padding-left: 0; list-style:none; font-size: 13px; color: #444;"></ul>
-            </div>
-            
-            <div id="modal-baglanti-alani">
-                <hr style="border:0; border-top:1px solid #ccc; margin:10px 0;">
-                <h4 style="margin-bottom: 5px; font-size:14px;">📤 Giden Bağlantı Seçimi</h4>
-                <div id="silo-kanallari-inputlari">
-                    <label style="color:#f1c40f; font-weight:bold; font-size:11px;">Kanal 1 Hedefleri:</label> <div id="modal-kanal-1" class="hedef-secici"></div>
-                    <label style="color:#3498db; font-weight:bold; font-size:11px;">Kanal 2 Hedefleri:</label> <div id="modal-kanal-2" class="hedef-secici"></div>
-                    <label style="color:#e74c3c; font-weight:bold; font-size:11px;">Kanal 3 Hedefleri:</label> <div id="modal-kanal-3" class="hedef-secici"></div>
-                    <label style="color:#bdc3c7; font-weight:bold; font-size:11px;">Kanal 4 Hedefleri:</label> <div id="modal-kanal-4" class="hedef-secici"></div>
-                </div>
-                <div id="firin-hedef-inputu" style="display: none;">
-                    <label style="color:#e67e22; font-weight:bold; font-size:11px;">Hedef Makinalar:</label> <div id="modal-firin-hedef" class="hedef-secici"></div>
-                </div>
-            </div>
-            
-            <button id="modal-kaydet" class="kaydet-btn">Kaydet</button>
-            <button id="modal-kapat-alt" class="kapat-alt-btn">Kapat</button>
-        </div>
-    </div>
 
     <script src="js/script.js"></script>
 </body>
