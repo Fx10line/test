@@ -1,53 +1,5 @@
-:root {
-  --bg: #f4f7f9; --grid: #dce4ec; --text: #2c3e50;
-  --line-blue: #2980b9; --line-green: #27ae60; --line-orange: #d35400;
-  font-family: system-ui, sans-serif;
+/* [BAŞLANGIÇ: Zemin Stil Ayarları] */
+.harita-zemini {
+   ...
 }
-* { box-sizing: border-box; } 
-body { margin: 0; background: var(--bg); color: var(--text); overflow: hidden; user-select: none; -webkit-user-select: none; }
-
-#kontrol-paneli { position: fixed; top: 10px; left: 10px; z-index: 2000; background: rgba(255, 255, 255, 0.95); padding: 12px; border-radius: 8px; border: 1px solid #bdc3c7; box-shadow: 0 4px 10px rgba(0,0,0,0.1); width: 160px; }
-.zoom-araclari { display: flex; align-items: center; justify-content: space-between; }
-.zoom-araclari button { background: #ecf0f1; border: 1px solid #bdc3c7; padding: 5px 12px; border-radius: 4px; font-weight:bold; cursor:pointer; color:#2c3e50;}
-#zoom-seviyesi { font-size: 13px; font-weight: bold; }
-#btn-kilitle { padding: 8px; border: none; border-radius: 4px; font-weight: bold; cursor: pointer; color: white; }
-.kilit-acik { background: #e74c3c; } .kilit-kapali { background: #27ae60; }
-
-#fabrika-sahasi { width: 100vw; height: 100vh; position: relative; background: var(--bg); touch-action: none; }
-#sahne { 
-    width: 3500px; height: 2500px; position: absolute; top: 0; left: 0; 
-    background-image: linear-gradient(var(--grid) 1px, transparent 1px), linear-gradient(90deg, var(--grid) 1px, transparent 1px); 
-    background-size: 30px 30px; transform-origin: 0 0; 
-}
-
-/* Bölge Çerçeveleri (Blueprint Kutu Çizgileri) */
-.bolge-cerceve { position: absolute; border: 2px solid #95a5a6; background: rgba(255,255,255,0.4); z-index: 1; pointer-events: none; }
-.bolge-baslik { position: absolute; top: -12px; left: 20px; background: var(--bg); padding: 0 8px; font-size: 14px; font-weight: bold; color: #34495e; letter-spacing: 1px; }
-
-/* SVG Kablolar */
-#cizim-alani { position:absolute; top:0; left:0; width:100%; height:100%; overflow:visible; pointer-events:none; z-index:5; }
-.svg-kablo { fill: none; stroke-width: 5; stroke-linejoin: round; stroke-linecap: round; }
-.kablo-mavi { stroke: var(--line-blue); }
-.kablo-yesil { stroke: var(--line-green); }
-.kablo-turuncu { stroke: var(--line-orange); }
-.kablo-gri { stroke: #95a5a6; stroke-dasharray: 8, 4; stroke-width: 3; } /* Silo - Zentrale arası */
-
-/* Hafif Makine ve Silo Kutuları */
-.kutu { 
-    position: absolute; width: 120px; padding: 10px; background: #fff; 
-    border: 2px solid #7f8c8d; border-radius: 6px; box-shadow: 2px 4px 8px rgba(0,0,0,0.05); 
-    z-index: 10; cursor: grab; text-align: center; display: flex; flex-direction: column; align-items: center;
-}
-.kutu-baslik { font-weight: bold; font-size: 14px; margin-bottom: 5px; color: #2c3e50; }
-.kutu-gorsel { width: 80%; height: auto; opacity: 0.8; margin-bottom: 5px; } /* İkon yerine resim eklenebilir */
-
-.kutu-silo { border-radius: 20px 20px 5px 5px; width: 60px; height: 120px; justify-content: flex-start; padding: 5px; font-size: 11px;}
-.kutu-silo .kutu-baslik { font-size: 11px; margin-bottom: 2px;}
-
-.kutu-zentrale { border: 3px solid #f39c12; background: #fdfbf7; border-radius: 12px; width: 90px; }
-
-/* Bağlantı Noktaları (Görünmez/Küçük tetikleyiciler) */
-.node-out, .node-in { width: 24px; height: 24px; border-radius: 50%; position: absolute; z-index: 15; cursor: pointer; border: 3px solid #fff; box-shadow: 0 2px 5px rgba(0,0,0,0.2); }
-.node-out { background: #3498db; right: -12px; top: 50%; transform: translateY(-50%); }
-.node-in { background: #2ecc71; left: -12px; top: 50%; transform: translateY(-50%); }
-.node-secili { transform: translateY(-50%) scale(1.4); border-color: #e74c3c; }
+/* [BİTİŞ: Zemin Stil Ayarları] */
