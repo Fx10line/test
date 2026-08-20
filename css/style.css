@@ -1,82 +1,17 @@
-/* [BAŞLANGIÇ: Harita Zemin Sistemi (CSS)] */
-.harita-konteyner {
-    width: 100%;
-    overflow-x: auto; 
-    padding: 20px;
-    background-color: #e9ecef;
-}
-
-.harita-grid {
-    display: grid;
-    /* Kutuları biraz büyüttük, 90px yaptık ki ikonlar rahat sığsın */
-    grid-template-columns: repeat(5, 90px);
-    grid-template-rows: repeat(5, 90px);
-    gap: 15px;
-    min-width: 520px; 
-}
-
-/* Tüm Nesnelerin Temel Kalıbı */
-.cihaz {
-    background-color: #ffffff;
+/* [BAŞLANGIÇ: Vektörel İkon Stilleri (CSS)] */
+.cihaz .ikon {
+    width: 28px;
+    height: 28px;
+    margin-bottom: 4px;
     display: flex;
-    flex-direction: column;
     align-items: center;
     justify-content: center;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-    cursor: pointer;
-    transition: all 0.2s ease;
-    padding: 5px;
-    position: relative; /* Durum topunu köşeye alabilmek için */
-}
-.cihaz:active { transform: scale(0.95); }
-
-/* --- SABİT DONANIMLAR --- */
-.cihaz.sabit { border: 3px solid; }
-
-/* Silo: Yüksek depo hissi vermek için üstü oval */
-.cihaz.silo { border-color: #3498db; border-radius: 20px 20px 4px 4px; border-bottom-width: 6px; }
-
-/* Fırın: Sıcaklık hissi için üstü kırmızımsı şeritli */
-.cihaz.firin { border-color: #e67e22; border-radius: 8px; border-top: 6px solid #e74c3c; }
-
-/* Makina: Üretim cihazı, köşeli ve altı kalın (ağır makine hissi) */
-.cihaz.makina { border-color: #2ecc71; border-radius: 4px; border-bottom: 6px solid #27ae60; }
-
-/* --- SEYYAR NESNELER (Taşınabilir) --- */
-/* Seyyar olduklarını belli etmek için kesik çizgili (dashed) kenarlık */
-.cihaz.seyyar { 
-    border: 3px dashed; 
-    background-color: #fdfdfd; 
-    border-radius: 6px; 
-}
-.cihaz.karton-box { border-color: #8d6e63; } /* Karton Rengi */
-.cihaz.gitterbox { border-color: #7f8c8d; }  /* Metalik Gri */
-.cihaz.poset { border-color: #9b59b6; }      /* Plastik Poşet Rengi */
-
-/* --- İÇERİK STİLLERİ --- */
-.cihaz .ikon {
-    font-size: 24px;
-    margin-bottom: 2px;
-}
-.cihaz .baslik {
-    font-size: 11px;
-    font-weight: 700;
-    color: #333;
-    text-align: center;
-    line-height: 1.1;
 }
 
-/* Durum (Alarm) Göstergesi - Sağ üst köşeye sabitledik */
-.cihaz .durum {
-    width: 12px;
-    height: 12px;
-    border-radius: 50%;
-    position: absolute;
-    top: -5px;
-    right: -5px;
-    border: 2px solid #fff; /* Karışmaması için beyaz dış viye */
+.cihaz .ikon svg {
+    width: 100%;
+    height: 100%;
+    /* Cihazın rengi neyse ikon da o rengi alır. Çok şık durur. */
+    color: #455a64; 
 }
-.durum.yesil { background-color: #2ecc71; }
-.durum.sari { background-color: #f1c40f; }
-.durum.kirmizi { background-color: #e74c3c; box-shadow: 0 0 8px #e74c3c; }
-/* [BİTİŞ: Harita Zemin Sistemi (CSS)] */
+/* [BİTİŞ: Vektörel İkon Stilleri (CSS)] */
