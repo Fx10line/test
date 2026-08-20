@@ -1,5 +1,58 @@
-/* [BAŞLANGIÇ: Zemin Stil Ayarları] */
-.harita-zemini {
-   ...
+/* [BAŞLANGIÇ: Harita Zemin Sistemi (CSS)] */
+.harita-konteyner {
+    width: 100%;
+    overflow-x: auto; /* Telefondan bakıldığında sağa sola kaydırmak için */
+    padding: 10px;
+    background-color: #eceff1;
 }
-/* [BİTİŞ: Zemin Stil Ayarları] */
+
+.harita-grid {
+    display: grid;
+    /* Şimdilik 5 Sütun (A,B,C,D,E) ve 5 Satır (1,2,3,4,5) olarak ayarladık */
+    grid-template-columns: repeat(5, 80px);
+    grid-template-rows: repeat(5, 80px);
+    gap: 15px;
+    min-width: 460px; /* Telefon ekranı küçükse kutuları ezmez, kaydırma (scroll) çıkarır */
+}
+
+.cihaz {
+    background-color: #ffffff;
+    border: 3px solid #ccc;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    cursor: pointer;
+    transition: transform 0.2s ease; /* Tıklama hissi için ufak bir animasyon */
+}
+
+.cihaz:active {
+    transform: scale(0.95);
+}
+
+/* Cihaz Tiplerine Göre Renk Ayrımları */
+.cihaz.silo { border-color: #3498db; }    /* Mavi */
+.cihaz.firin { border-color: #e67e22; }   /* Turuncu */
+.cihaz.makina { border-color: #2ecc71; }  /* Yeşil */
+
+.cihaz .baslik {
+    font-size: 11px;
+    font-weight: bold;
+    color: #333;
+    text-align: center;
+    padding: 2px;
+}
+
+/* Anlık Durum (Alarm) Göstergesi */
+.cihaz .durum {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    margin-top: 5px;
+}
+.durum.yesil { background-color: #2ecc71; }
+.durum.sari { background-color: #f1c40f; }
+.durum.kirmizi { background-color: #e74c3c; box-shadow: 0 0 8px #e74c3c; } /* Kırmızıda alarm parlaması */
+/* [BİTİŞ: Harita Zemin Sistemi (CSS)] */
